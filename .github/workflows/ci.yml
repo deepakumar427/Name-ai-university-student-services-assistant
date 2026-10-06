@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      MOCK_LLM: "true"   # CI has no Ollama; the pipeline still runs end to end
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+
+      - name: Cache embedding model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/chroma
+          key: chroma-onnx-all-MiniLM-L6-v2
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Validate synthetic data
+        run: python scripts/validate_students.py
+
+      - name: Unit and API tests
+        run: pytest -q
+
+      - name: Evaluation (mock LLM)
+        run: |
+          python scripts/ingest_documents.py
+          python scripts/load_students.py --dir data/synthetic
+          python evaluation/run_eval.py
+          cat evaluation/reports/report_mock.md >> "$GITHUB_STEP_SUMMARY"
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t student-services-assistant:ci .
+      - name: Start API with mock LLM and check /health
+        run: |
+          docker run -d --name api -e MOCK_LLM=true -e JWT_SECRET=ci-only-secret-0123456789abcdef0123 \
+            -p 8000:8000 student-services-assistant:ci
+          for i in $(seq 1 30); do curl -sf localhost:8000/health && break; sleep 3; done
+          curl -sf localhost:8000/health
+          # /ask must refuse a request without a login token
+          test "$(curl -s -o /dev/null -w '%{http_code}' -X POST localhost:8000/ask \
+            -H 'Content-Type: application/json' -d '{"question":"hi"}')" = "401"
+          TOKEN=$(curl -sf -X POST localhost:8000/auth/login -H 'Content-Type: application/json' \
+            -d '{"student_id":"S1001","password":"Student@2026"}' | python3 -c "import sys,json;print(json.load(sys.stdin)['access_token'])")
+          curl -sf -X POST localhost:8000/ask -H 'Content-Type: application/json' -H "Authorization: Bearer $TOKEN" \
+            -d '{"question":"What is the minimum attendance required for exams?"}'
+      - name: Container logs
+        if: always()
+        run: docker logs api || true

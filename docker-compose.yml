@@ -1,0 +1,41 @@
+# docker compose up --build
+# Ollama runs on the host machine (faster, uses the GPU on Mac). Pull the model first: ollama pull qwen2.5:3b
+services:
+  api:
+    build: .
+    image: student-services-assistant:latest
+    environment:
+      # Own variable name: .env's OLLAMA_BASE_URL (localhost) is for running outside Docker and would break this.
+      OLLAMA_BASE_URL: ${DOCKER_OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:3b}
+      MOCK_LLM: ${MOCK_LLM:-false}
+      # Set JWT_SECRET in .env (a long random string). Empty = random per start: everyone logs in again after a restart.
+      JWT_SECRET: ${JWT_SECRET:-}
+      JWT_EXPIRE_MINUTES: ${JWT_EXPIRE_MINUTES:-60}
+      DEMO_STUDENT_PASSWORD: ${DEMO_STUDENT_PASSWORD:-Student@2026}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"   # lets Linux containers reach Ollama on the host
+    volumes:
+      - app_data:/data                       # SQLite + ChromaDB persist across restarts
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5)"]
+      interval: 10s
+      timeout: 6s
+      retries: 12
+      start_period: 60s
+
+  ui:
+    image: student-services-assistant:latest
+    command: ["streamlit", "run", "ui/streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0", "--server.headless=true"]
+    environment:
+      API_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  app_data:

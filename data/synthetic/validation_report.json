@@ -1,0 +1,76 @@
+{
+  "row_counts": {
+    "students": 40,
+    "courses": 6,
+    "attendance": 65,
+    "results": 63
+  },
+  "programmes": [
+    "B.Tech CSE",
+    "B.Tech ECE"
+  ],
+  "batches": [
+    "2024",
+    "2025"
+  ],
+  "file_errors": [],
+  "invalid_rows": {
+    "students": [],
+    "courses": [],
+    "attendance": [],
+    "results": []
+  },
+  "warnings": [],
+  "edge_cases": [
+    {
+      "student_id": "S1001",
+      "edge_case": "CS201 attendance exactly 80.0%"
+    },
+    {
+      "student_id": "S1002",
+      "edge_case": "CS201 attendance 77.5%, one class below 80%"
+    },
+    {
+      "student_id": "S1003",
+      "edge_case": "CS201 failed with 39/100, one mark below pass"
+    },
+    {
+      "student_id": "S1004",
+      "edge_case": "absent in CS203"
+    },
+    {
+      "student_id": "S1005",
+      "edge_case": "detained in CS201 (50% attendance)"
+    },
+    {
+      "student_id": "S1006",
+      "edge_case": "two active backlogs"
+    },
+    {
+      "student_id": "S1007",
+      "edge_case": "CGPA exactly at the 6.5 placement cut-off"
+    },
+    {
+      "student_id": "S1008",
+      "edge_case": "one backlog; what-if pass -> placement eligible"
+    },
+    {
+      "student_id": "S1009",
+      "edge_case": "attendance but no results yet"
+    },
+    {
+      "student_id": "S1010",
+      "edge_case": "CGPA 6.49, just below the cut-off"
+    },
+    {
+      "student_id": "S1011",
+      "edge_case": "ECE student, 75.0% attendance (meets old rule, not new)"
+    }
+  ],
+  "edge_case_checks": {
+    "S1001 CS201 = 80.0%": true,
+    "S1002 CS201 one class below 80%": true,
+    "S1007 CGPA = 6.50": true,
+    "S1006 has >= 2 backlogs": true
+  }
+}

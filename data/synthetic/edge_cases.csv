@@ -1,0 +1,12 @@
+student_id,edge_case
+S1001,CS201 attendance exactly 80.0%
+S1002,"CS201 attendance 77.5%, one class below 80%"
+S1003,"CS201 failed with 39/100, one mark below pass"
+S1004,absent in CS203
+S1005,detained in CS201 (50% attendance)
+S1006,two active backlogs
+S1007,CGPA exactly at the 6.5 placement cut-off
+S1008,one backlog; what-if pass -> placement eligible
+S1009,attendance but no results yet
+S1010,"CGPA 6.49, just below the cut-off"
+S1011,"ECE student, 75.0% attendance (meets old rule, not new)"

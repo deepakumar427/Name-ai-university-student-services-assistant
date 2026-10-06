@@ -1,0 +1,8 @@
+doc_id,title,issuer,authority_level,doc_type,version,effective_from,effective_to,supersedes,scope_programmes,scope_batches,provenance,retrieved_on,synthetic,file_name
+ACAD-REG-2024,Academic Regulations for B.Tech Programmes,Office of the Dean (Academics),1,regulation,3.1,2024-07-01,,,ALL,ALL,synthetic sample written by the team (replace with official university PDF),2026-10-06,Y,ACAD-REG-2024.pdf
+ACAD-2026-08,Circular: Revised Minimum Attendance Requirement,Office of the Dean (Academics),2,circular,1.0,2026-08-01,,ACAD-REG-2024#7.2,ALL,ALL,synthetic mock circular written by the team to demonstrate supersession,2026-10-06,Y,ACAD-2026-08.pdf
+STU-FAQ-2026,Student Help Desk FAQ,Student Help Desk,4,faq,2.0,2026-09-15,,,ALL,ALL,synthetic sample written by the team (replace with official FAQ),2026-10-06,Y,STU-FAQ-2026.pdf
+TNP-POL-2025,Training and Placement Policy,Registrar (Training and Placement Cell),2,circular,1.2,2025-07-01,,,ALL,ALL,synthetic sample written by the team (replace with official placement policy),2026-10-06,Y,TNP-POL-2025.pdf
+EXAM-2026-11,Circular: Supplementary Examination Fee,Controller of Examinations,2,circular,1.0,2026-09-01,,,ALL,ALL,synthetic sample to demonstrate an unresolvable conflict,2026-10-06,Y,EXAM-2026-11.pdf
+EXAM-2026-12,Notification: Supplementary Examination Fee,Examination Branch,2,circular,1.0,2026-09-01,,,ALL,ALL,synthetic sample to demonstrate an unresolvable conflict,2026-10-06,Y,EXAM-2026-12.pdf
+HELPDESK-NOTES,Library and Help Desk Notes,Central Library Help Desk,4,handbook,1.0,2026-01-01,,,ALL,ALL,synthetic poisoned document for prompt-injection testing,2026-10-06,Y,HELPDESK-NOTES.pdf

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.env
+data/app.db
+data/chroma/
+evaluation/reports/results_*.json
+.DS_Store

@@ -1,0 +1,31 @@
+SAMPLE UNIVERSITY OF TECHNOLOGY
+ACADEMIC REGULATIONS FOR B.TECH PROGRAMMES (VERSION 3.1)
+Issued by the Office of the Dean (Academics). Effective from 1 July 2024.
+SYNTHETIC SAMPLE DOCUMENT CREATED FOR THE HACKATHON. NOT AN OFFICIAL DOCUMENT.
+
+1. Short title and commencement
+1.1 These regulations are called the Academic Regulations for B.Tech Programmes, 2024. They apply to all B.Tech students from the academic year 2024-25 onwards.
+
+2. Definitions
+2.1 "Course" means a subject with a course code, for example CS201 Data Structures.
+2.2 "End-semester examination" means the examination held at the end of each semester for every course.
+2.3 "Active backlog" means a course in which a student has failed or was absent and has not yet passed.
+<<<PAGE>>>
+5. Evaluation
+5.1 Marks distribution. Each course is evaluated out of 100 marks: internal assessment carries 40 marks and the end-semester examination carries 60 marks.
+5.2 Pass mark. A student must obtain at least 40 marks out of 100 in total to pass a course.
+5.3 Result. The result of a course is declared as PASS, FAIL, ABSENT or DETAINED.
+<<<PAGE>>>
+7. Attendance
+7.1 Counting attendance. Attendance is counted separately for each course as the number of classes attended divided by the number of classes held.
+7.2 Minimum attendance. A student must have a minimum of 75% attendance in each course to be eligible to appear in the end-semester examination of that course.
+7.3 Condonation. The Dean (Academics) may condone a shortage of attendance of up to 5% on documented medical grounds, on written application by the student.
+7.4 Detention. A student who does not meet the minimum attendance requirement, after any condonation, is detained in that course and is not allowed to appear in its end-semester examination.
+<<<PAGE>>>
+9. Supplementary examinations
+9.1 Eligibility. A student who has failed, or was absent in, the regular end-semester examination of a course is eligible to appear in the supplementary examination of that course. A student who was detained in a course is not eligible for its supplementary examination.
+9.2 Procedure. To appear in a supplementary examination a student must: (a) register for the supplementary examination on the examination portal within 10 days of the declaration of results; (b) pay the supplementary examination fee notified by the Controller of Examinations; (c) download the admit card from the examination portal; and (d) appear in the examination as per the published schedule.
+9.3 Marks. The marks obtained in the supplementary examination replace the earlier end-semester examination marks of that course.
+
+10. Backlogs
+10.1 A course is counted as an active backlog until the student passes it in a regular or supplementary examination.

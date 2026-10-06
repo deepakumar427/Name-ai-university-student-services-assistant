@@ -1,0 +1,6 @@
+rule_id,description,parameter,operator,value,scope_programmes,scope_batches,effective_from,effective_to,source_doc_id,source_section
+ATT-MIN-01,Minimum attendance per course to appear in the end-semester examination,min_attendance_pct,>=,75,ALL,ALL,2024-07-01,,ACAD-REG-2024,7.2
+ATT-MIN-02,Minimum attendance per course to appear in the end-semester examination (revised),min_attendance_pct,>=,80,ALL,ALL,2026-08-01,,ACAD-2026-08,2.1
+SUPP-ELIG-01,Regular-exam results that make a student eligible for the supplementary examination,supp_eligible_results,in,FAIL;ABSENT,ALL,ALL,2024-07-01,,ACAD-REG-2024,9.1
+PLC-CGPA-01,Minimum CGPA to register for campus placement,min_cgpa_placement,>=,6.5,ALL,ALL,2025-07-01,,TNP-POL-2025,3.1
+PLC-BKLG-01,Maximum active backlogs allowed to register for campus placement,max_active_backlogs_placement,<=,0,ALL,ALL,2025-07-01,,TNP-POL-2025,3.2
